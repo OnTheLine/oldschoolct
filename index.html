@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+  <title> OTL Old Schools Map</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/d3@5.14.2/dist/d3.min.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+
+</head>
+
+<body class="helvetica">
+
+  <div id="map" class="absolute absolute--fill"></div>
+
+  <div id="map-title" class="absolute top-1 left-1 ph3 pv2 z-999 bg-white bb bl bw1 b--black">
+    <h2 class="f3 ma0 pa0">
+      OTL Old Schols Map
+    </h2>
+    <h3 class="f4 ma0 pa0">
+      Photos by Johanna Kaplan
+      (<a href="https://www.instagram.com/oldschoolct/" class="link blue dim" target="_blank">@oldschoolct</a>)
+    </h3>
+  </div>
+
+  <div id="modal" class="absolute absolute--fill z-9999 dn">
+    <div class="mw7 pa4 mt3 bg-green center o-100 tc df cf">
+      <a href="#" id="hideModalButton" class="fr f6 link dim ph3 pv2 mb2 dib white bg-black"> Close </a>
+      <h2 class="f2 fl tl cf w-100"></h2>
+      <img src="" class="w-75">
+      <p class="tl"></p>
+    </div>
+  </div>
+
+  <script>
+
+    var map = L.map('map', {
+      center: [41.6, -72.69],
+      zoom: 10,
+      scrollWheelZoom: false,
+      zoomControl: false,
+    });
+
+    L.control.zoom({position: 'topright'}).addTo(map);
+
+    var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+    }).addTo(map);
+
+    var showModal = function(row) {
+      $('#modal img').attr('src', 'photos/' + row.Filename);
+      $('#modal p').text(row.Caption);
+      $('#modal h2').text(row.Title);
+      $('#modal').removeClass('dn');
+    }
+
+    $('#hideModalButton').click(function() {
+      $('#modal').addClass('dn')
+    })
+
+    d3.csv('catalog.csv', function(row) {
+      if (row.Latitude && row.Longitude) {
+        L.marker([row.Latitude, row.Longitude], {
+          icon: L.icon({
+            iconUrl: 'photos/thumbnails/' + row.Filename,
+            iconSize: [32, 32]
+          })
+        }).addTo(map).on('click', function() {
+          showModal(row);
+        });
+      }
+    })
+
+    
+
+  </script>
+
+</body>
