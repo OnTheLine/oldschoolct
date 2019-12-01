@@ -1,9 +1,9 @@
 # otl-oldschoolct
-DEMO interactive map of OldSchoolCT photos by Johanna Kaplan
+DEMO interactive map of OldSchoolCT photos by Johnna Kaplan
 
 ![Map demo screenshot](screenshot.png)
 
-All photos of one-room Connecticut schoolhouses copyrighted by Johanna Kaplan, and publicly viewable on her Instagram
+All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram
 https://www.instagram.com/oldschoolct/
 
 This Python tool downloads Instagram images and metadata
@@ -21,4 +21,7 @@ See the notebook for processing steps (including download). All photos are saved
 
 - Created duplicate of `catalog.csv` called `catalog-refined.csv` to manually revise processed data without overwriting python download.
 - Keep all rows intact to match with original. Omit rows from map display by removing Lat and Long
-- **TODO** manually geocode schools and addresses to locate more precisely on map
+
+## TODO
+- Note that photo placement on map is APPROXIMATE based on town name, not address
+- Continue to refine school geocoding. If  photographer has original photos with EXIF data, we can automate this.
