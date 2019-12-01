@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title> OTL Old Schools Map</title>
+  <title> OTL Old School CT Map</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
@@ -29,7 +29,7 @@
 
   <div id="map-title" class="absolute top-1 left-1 ph3 pv2 z-999 bg-white bb bl bw1 b--black">
     <h2 class="f3 ma0 pa0">
-      OTL Old Schols Map
+      DEMO Old School CT Map
     </h2>
     <h3 class="f4 ma0 pa0">
       Photos by Johanna Kaplan
@@ -55,6 +55,9 @@
       zoomControl: false,
     });
 
+    map.attributionControl
+    .setPrefix('View <a href="https://github.com/ontheline/otl-oldschoolct" target="_blank">sources and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+
     L.control.zoom({position: 'topright'}).addTo(map);
 
     var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
@@ -72,7 +75,7 @@
       $('#modal').addClass('dn')
     })
 
-    d3.csv('catalog.csv', function(row) {
+    d3.csv('catalog-refined.csv', function(row) {
       if (row.Latitude && row.Longitude) {
         L.marker([row.Latitude, row.Longitude], {
           icon: L.icon({
@@ -85,7 +88,7 @@
       }
     })
 
-    
+
 
   </script>
 

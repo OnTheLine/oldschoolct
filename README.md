@@ -1,5 +1,5 @@
 # otl-oldschoolct
-Interactive map demo of OldSchoolCT photos by Johanna Kaplan
+DEMO interactive map of OldSchoolCT photos by Johanna Kaplan
 
 ![Map demo screenshot](screenshot.png)
 
@@ -15,4 +15,10 @@ See the notebook for processing steps (including download). All photos are saved
 
 1. `Title` column is generated from the caption. It is assumed that a first sentence of the caption contains the school name and/or location (eg `Old Center School, Burlington`).
 1. Based on that assumption, `Geocoded` column contains geocoded coordinates of what Google API thinks is an appropriate location for that school name and location.
-1. `Latitue` and `Longitude` columns are derived from the `Geocoded` column.
+1. `Latitude` and `Longitude` columns are derived from the `Geocoded` column.
+
+## Catalog-refined
+
+- Created duplicate of `catalog.csv` called `catalog-refined.csv` to manually revise processed data without overwriting python download.
+- Keep all rows intact to match with original. Omit rows from map display by removing Lat and Long
+- **TODO** manually geocode schools and addresses to locate more precisely on map
