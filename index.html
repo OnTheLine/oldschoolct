@@ -27,22 +27,45 @@
 
   <div id="map" class="absolute absolute--fill"></div>
 
-  <div id="map-title" class="absolute top-1 left-1 ph3 pv2 z-999 bg-white bb bl bw1 b--black">
+  <div id="map-title" class="absolute top-1 left-1 ph3 pv2 z-999 bg-white ba bw1 b--moon-gray br2">
     <h2 class="f3 ma0 pa0">
       Map: Old Schoolhouses in Connecticut
     </h2>
-    <h3 class="f4 ma0 pa0">
-      Photos by <a href="https://www.instagram.com/oldschoolct/" class="link blue dim" target="_blank">Johnna Kaplan</a>, approximate locations
+    <h3 class="f4 ma0 pa0 normal">
+      Photos by
+      <a href="https://www.instagram.com/oldschoolct/" class="link blue dim" target="_blank">Johnna Kaplan</a>,
+      approximate locations
     </h3>
   </div>
 
-  <div id="modal" class="absolute absolute--fill z-9999 dn">
-    <div class="mw7 pa4 mt3 bg-green center o-100 tc df cf">
-      <a href="#" id="hideModalButton" class="fr f6 link dim ph3 pv2 mb2 dib white bg-black"> Close </a>
-      <h2 class="f2 fl tl cf w-100"></h2>
-      <img src="" class="w-75">
-      <p class="tl"></p>
-    </div>
+  <div id="modal" class="absolute absolute--fill vh-100 z-9999 dt center">
+    <article class="mw7 pa4 mt3 center tc cf dn v-mid">
+
+      <div class="bg-moon-gray pa4 br2">
+        <div class="cf">
+          <div class="w-75 fl">
+            <h2 class="f3 tl mt0"></h2>
+          </div>
+
+          <div class="w-25 fl tr">
+            <svg id="hideModalButton" xmlns="http://www.w3.org/2000/svg"
+              width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+              class="dim feather feather-x-circle" style="cursor: pointer;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+          </div>
+        </div>
+
+        <div class="w-100 pa4 bg-white">
+          <img src="" alt="Old School Photo">
+        </div>
+
+        <p class="tl"></p>
+      </div>
+    </article>
   </div>
 
   <script>
@@ -52,6 +75,9 @@
       zoom: 9,
       scrollWheelZoom: false,
       zoomControl: false,
+      minZoom: 9,
+      maxZoom: 14,
+      maxBounds: [[40, -75], [44, -71]]
     });
 
     map.attributionControl
@@ -67,11 +93,12 @@
       $('#modal img').attr('src', 'photos/' + row.Filename);
       $('#modal p').text(row.Caption);
       $('#modal h2').text(row.Title);
-      $('#modal').removeClass('dn');
+      $('#modal article').removeClass('dn').addClass('dtc');
     }
 
     $('#hideModalButton').click(function() {
-      $('#modal').addClass('dn')
+      $('#modal article').removeClass('dtc').addClass('dn');
+      $('#modal img').attr('src', '');
     })
 
     d3.csv('catalog-refined.csv', function(row) {
