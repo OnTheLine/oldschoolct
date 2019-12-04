@@ -1,7 +1,7 @@
 # otl-oldschoolct
 DEMO interactive map of OldSchoolCT photos by Johnna Kaplan
 
-![Map demo screenshot](screenshot.png)
+![Map demo screenshot](otl-oldschools-demo.jpg)
 
 All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram
 https://www.instagram.com/oldschoolct/
