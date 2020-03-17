@@ -1,16 +1,17 @@
 # otl-oldschoolct
-Interactive map of OldSchoolCT photos by Johnna Kaplan. View online at https://ontheline.gitub.io/otl-oldschoolct
+Interactive map of OldSchoolCT Instagram photos by Johnna Kaplan. Jupyter Notebook downloads and processes photos from Instagram.
 
-Embedded in On The Line book http://ontheline.trincoll.edu
+## View online at https://ontheline.gitub.io/otl-oldschoolct/index-caption.html
 
-![Map demo screenshot](otl-oldschools-demo.jpg)
+## Embedded in On The Line book http://ontheline.trincoll.edu
+
+![Map demo screenshot](otl-oldschoolct-demo)
 
 ## Credits
-- All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram
-https://www.instagram.com/oldschoolct/
-- Coding and map design by Ilya Ilyankou and Jack Dougherty
+- All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram account: https://www.instagram.com/oldschoolct/
+- Coding and map design by Ilya Ilyankou and Jack Dougherty.
 - Python tool to download Instagram images and metadata https://instaloader.github.io/
-- Many thanks to Elizabeth Rose for researching school site addresses to improve geographic precision
+- Many thanks to Elizabeth Rose for researching school site addresses to improve geographic precision.
 
 ## Jupyter processing
 See the notebook for processing steps (including download). All photos are saved in `photos/` folder, and all metadata is saved in the `catalog.csv` file. The thumbnails (smaller images that are shown on the map, in other words icons) are created with Wand library (http://docs.wand-py.org/en/0.5.7/) and are saved in `photos/thumbnails/`.
@@ -20,9 +21,9 @@ See the notebook for processing steps (including download). All photos are saved
 1. `Latitude` and `Longitude` columns are derived from the `Geocoded` column.
 
 ## Catalog-refined
-- Created duplicate of `catalog.csv` called `catalog-refined.csv` to research school site addresses, and manually improve precision of geographic coordinate data without overwriting python download.
-- Keep all rows intact to match with original. Omit selected rows (e.g. secondary photos of school interiors, historical signs) from map display by removing Lat and Long
+- Created duplicate of `catalog.csv` called `catalog-refined.csv` to research school site addresses, and manually improve precision of geographic coordinate data without overwriting python download. Map pulls image data from the latitude and longitude columns of `catalog-refined.csv`.
+- Keep all rows intact to match with original. Omit selected rows (e.g. secondary photos of school interiors, historical signs) from map display by removing data from Lat and Long columns.
 
 ## TODO
-- Ask photographer to review missing address data in [catalog-refined Google Sheet](https://docs.google.com/spreadsheets/d/1JouNnQTA6FGgCJbVaVoIBKxddhGuO999ecHIMOYfi-Y)
-- Improve workflow with photographer to add new photos with EXIF geocoordinate data
+- Working with photographer to obtain address data for a few more images that we could not locate.
+- For future photos, ask photographer to add street address or intersection to Instagram captions.
