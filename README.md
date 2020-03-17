@@ -5,7 +5,7 @@ Interactive map of OldSchoolCT Instagram photos by Johnna Kaplan. Jupyter Notebo
 
 ## Embedded in On The Line book http://ontheline.trincoll.edu
 
-![Map demo screenshot](otl-oldschoolct-demo)
+![Map demo screenshot](otl-oldschoolct-demo.png)
 
 ## Credits
 - All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram account: https://www.instagram.com/oldschoolct/
