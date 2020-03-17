@@ -97,9 +97,6 @@
     var maxLatLng = [42.0511, -71.7874];
     var bounds = L.latLngBounds(minLatLng, maxLatLng);
 
-    map.attributionControl
-    .setPrefix('View <a href="https://github.com/ontheline/otl-oldschoolct" target="_blank">sources and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
-
     L.control.zoom({position: 'topright'}).addTo(map);
 
     var searchControl = L.esri.Geocoding.geosearch({
@@ -107,6 +104,12 @@
       placeholder: "Search in Connecticut...",
       searchBounds: bounds
     }).addTo(map);
+
+    // Esri geocoder set its own prefix, so add on top of that:
+    map.attributionControl.setPrefix('View\
+      <a href="https://github.com/ontheline/otl-oldschoolct" target="_blank">sources and code on GitHub</a>,\
+      created with ' + map.attributionControl.options.prefix
+    );
 
     var results = L.layerGroup().addTo(map);
 
