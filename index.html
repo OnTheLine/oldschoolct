@@ -89,9 +89,14 @@
       scrollWheelZoom: false,
       zoomControl: false,
       minZoom: 9,
-      maxZoom: 18,
+      maxZoom: 16,
       maxBounds: [[40, -75], [44, -71]]
     });
+
+    // set CT bounds for geocoder
+    var minLatLng = [40.9509, -73.7272];
+    var maxLatLng = [42.0511, -71.7874];
+    var bounds = L.latLngBounds(minLatLng, maxLatLng);
 
     map.attributionControl
     .setPrefix('View <a href="https://github.com/ontheline/otl-oldschoolct" target="_blank">sources and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
@@ -99,7 +104,9 @@
     L.control.zoom({position: 'topright'}).addTo(map);
 
     var searchControl = L.esri.Geocoding.geosearch({
-      position: "topright"
+      position: "topright",
+      placeholder: "Search the Hartford area...",
+      searchBounds: bounds
     }).addTo(map);
 
     var results = L.layerGroup().addTo(map);
