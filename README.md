@@ -1,7 +1,7 @@
 # otl-oldschoolct
 Interactive map of OldSchoolCT Instagram photos by Johnna Kaplan. Jupyter Notebook downloads and processes photos from Instagram.
 
-## View online at https://ontheline.gitub.io/otl-oldschoolct/index-caption.html
+## View online at https://ontheline.github.io/otl-oldschoolct/index-caption.html
 
 ## Embedded in On The Line book http://ontheline.trincoll.edu
 
@@ -9,7 +9,7 @@ Interactive map of OldSchoolCT Instagram photos by Johnna Kaplan. Jupyter Notebo
 
 ## Credits
 - All photos of one-room Connecticut schoolhouses copyrighted by Johnna Kaplan, and publicly viewable on her Instagram account: https://www.instagram.com/oldschoolct/
-- Coding and map design by Ilya Ilyankou and Jack Dougherty.
+- Coding and map design by [Ilya Ilyankou](https://github.com/ilyankou) and Jack Dougherty.
 - Python tool to download Instagram images and metadata https://instaloader.github.io/
 - Many thanks to Elizabeth Rose for researching school site addresses to improve geographic precision.
 

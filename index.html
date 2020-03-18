@@ -138,18 +138,21 @@
 
     d3.csv('catalog-refined.csv', function(row) {
       if (row.Latitude && row.Longitude) {
-        L.marker([row.Latitude, row.Longitude], {
-          icon: L.icon({
-            iconUrl: 'photos/thumbnails/' + row.Filename,
-            iconSize: [32, 32]
-          })
-        }).addTo(map).on('click', function() {
-          showModal(row);
-        });
+        try {
+          L.marker([row.Latitude, row.Longitude], {
+            icon: L.icon({
+              iconUrl: 'photos/thumbnails/' + row.Filename,
+              iconSize: [32, 32]
+            })
+          }).addTo(map).on('click', function() {
+            showModal(row);
+          });
+        }
+        catch (err) {
+          console.log('Could not create a marker for ' + row.Title)
+        }
       }
     })
-
-
 
   </script>
 
