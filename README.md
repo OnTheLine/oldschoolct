@@ -25,5 +25,5 @@ See the notebook for processing steps (including download). All photos are saved
 - Keep all rows intact to match with original. Omit selected rows (e.g. secondary photos of school interiors, historical signs) from map display by removing data from Lat and Long columns.
 
 ## TODO
-- Working with photographer to obtain address data for a few more images that we could not locate.
-- For future photos, ask photographer to add street address or intersection to Instagram captions.
+- Need help from photographer or others to locate 9 addresses for 9 remaining photos [in this Google Sheet](https://docs.google.com/spreadsheets/d/1JouNnQTA6FGgCJbVaVoIBKxddhGuO999ecHIMOYfi-Y/edit#gid=1842420214)
+- For future photos, asked photographer to add street address or intersection to Instagram captions to allow easier placement on map.
